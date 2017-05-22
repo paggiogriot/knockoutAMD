@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="jumbotron">
+        HI 
+    </div>
+</div>
+
+<div class="row" id="firstViewModel">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p>First Name: <input data-bind="value: firstName" /></p>
+        <p>First name capitalized: <strong data-bind="text: firstNameCaps"></strong></p>
+    </div>
+
+    <!-- How to use a custom component -->
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div data-bind="component: {
+                            name: 'message-editor',
+                            params: { initialText: 'Hello World', obs: firstName, saveFn: saveFn }}"></div>
+    </div>
+
+    <!-- Using knockout amd helpers to load templates -->
+    <ul data-bind="template: { name: 'usersAMD', foreach: users }">
+    </ul>
+</div>
+
+<div class="row" id="secondViewModel">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p>First Name: <input data-bind="value: firstName" /></p>
+        <p>First name capitalized: <strong data-bind="text: firstNameCaps"></strong></p>
+    </div>
+
+    <ul data-bind="template: { name: 'usersAMD', foreach: users }"></ul>
+</div>
+
+<!-- not use yet -->
+<script type="text/html" id="users">
+    <li><span data-bind="html: firstName + ' ' + lastName"></span></li>
+</script>

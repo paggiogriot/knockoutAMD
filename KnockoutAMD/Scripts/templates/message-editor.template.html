@@ -1,0 +1,12 @@
+﻿<div data-bind="if: editable">
+    <textarea class="form-control input-sm" data-bind="value: text" />
+</div>
+<div data-bind="ifnot: editable">
+    <p class="text-success" data-bind="html: text"></p>
+</div>
+
+<button type="button" class="btn btn-default btn-sm" data-bind="visible: editable, click: Save">Save</button>
+<button type="button" class="btn btn-sm btn-default" data-bind="visible: editable, click: Cancel">Cancel</button>
+<button type="button" class="btn btn-sm btn-default" data-bind="visible: !editable(), click: Edit">Edit</button>
+
+<!--<button type="button" class="btn btn-primary" data-bind="click: submit">Submit</button>-->
